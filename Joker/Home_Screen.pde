@@ -29,6 +29,7 @@ void backgroundImage() {
   backgroundWhiteScreen();
   tint(tintDayMode, tintDayModeOpacity);
   //tint(tintRed, tintGreen, tintBlue, tintNightModeOpacity);
+  image(backgroundImage, backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   //image with tint()
 }//End backgroundImage
 //
