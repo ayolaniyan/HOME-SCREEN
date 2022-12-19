@@ -1,70 +1,64 @@
-//Global Variables
-int appWidth, appHeight, largerDimension, smallerDimension;
-Boolean OS_On=false, splashScreenStart=false;
-Boolean nightMode=false; //Bonus #1: populate with sytem clock
-//Ultimate Bonus, Gr 11: use API-sunrise for system clock start, API-sunset for system clock end
-//Hint: https://processing.org/reference/hour_.html
-color resetDefaultInk=#FFFFFF, white=#FFFFFF, purple=#FF00FF;
-/* Night Mode Comment
- Purple not for Night Mode, full BLUE
- resetDefaultInk is Night Mode friendly
- */
+PImage backgroundImage, quitButtonImage;
 //
-void setup() {
-  size(600, 400);
-  //fullScreen(); //displayWidth, displayHeight
-  appWidth = width;
-  appHeight = height;
-  //Display Algorithm from Hello World
-  display(); //Purpose: CANVAS fits in monitor & dimension size is known
-  //smaller & larger dimension from Display Algorithm
-  println("Smaller Dimension is", smallerDimension, "Larger Dimension is", largerDimension);
-  population(); //Values based on DISPLAY
-  textSetup();
-  imageSetup();
-}//End setup
+void imageSetup() {//Image Population
+  backgroundImage=loadImage("../Images/MV5BMGQ1ZGZmNTAtM2MyYi00NmZhLTkwYmYtNTNlZDRhMzU2ZTgwXkEyXkFqcGdeQW1yb3NzZXI@._V1_QL75_UX500_CR0,0,500,281_.jpg");
+  //quitButtonImage is loaded here if different
+}//End imageSetup
 //
-void draw() {
-  //Assignemnt #2: OS Level Mouse CLick and Splash Screen
-  if ( OS_On==true && splashScreenStart==false ) splashScreen(); //OS Level MOUSE Click
-  if ( splashScreenStart==true ) homeScreen();
-  println(splashScreenStart);
+void imageTintNightMode() {
+  //Control night mode, colour, with IF 
+  //if (nightMode==true) tint(tintRed, tintGreen, tintBlue, tintNightModeOpacity);
+  //if (nightMode==false) tint(tintDayMode, tintDayModeOpacity);
+  if ( nightMode==true ) {
+    tint(tintRed, tintGreen, tintBlue, tintNightModeOpacity);
+  } else {
+    tint(tintDayMode, tintDayModeOpacity);
+  }
+}//End imageTintNightMode
+//
+void quitButtonImage() {
+  quitButtonImage = backgroundImage;
   //
-}//End draw
-//
-void keyPressed() {
-  //Splash Screen SPACE Bar
-  if ( OS_On==true && key==' ' ) {
-    splashScreenStart = true;
-    backgroundImage();
-  }//End Splash Screen SPACE Bar
+  //Image Dimensions
+  float quitButtonImageWidth=1707, quitButtonImageHeight=2560;
+  //rect( quitButtonImageRectX, quitButtonImageRectY, quitButtonImageRectWidth, quitButtonImageRectHeight );
+  //Following vars must be populated or debugger error
+  float quitButtonImageWidth_Adjusted=0.0, quitButtonImageHeight_Adjusted=0.0;
+  float quitButtonImageWidth_Calculated=0.0, quitButtonImageHeight_Calculated=0.0;
+  float largerDimension=0.0, smallerDimension=0.0;
+  float imageWidthRatio=0.0, imageHeightRatio=0.0; 
   //
-  //Key Board Short Cuts
-  if ( splashScreenStart==true ) {//Home Screen Only Variables
-    if ( key==CODED || keyCode==ESC ) exit();
-    if ( key=='Q' || key=='q' ) exit();
-    if ( key=='N' || key=='n' ) {
-      if ( nightMode==false ) { 
-        nightMode = true;
-        backgroundImage();
-        //Reminder: must redraw all of rectangles too, and Home Screen
-      } else { 
-        nightMode = false;
-        backgroundImage();
-        //Reminder: must redraw all of rectangles too, and Home Screen
-      }
-    }
-  }//Home Screen Only
-  //
-}//End keyPressed
+  if ( quitButtonImageWidth >= quitButtonImageHeight ) {//Image's largest dimension, Landscape or Square
+    largerDimension = quitButtonImageWidth;
+    smallerDimension = quitButtonImageHeight;
+    //
+    //Image's matching dimension to rectangle's matching dimension
+    quitButtonImageWidth_Adjusted = quitButtonImageRectWidth;
+    imageHeightRatio = smallerDimension / largerDimension; //value<1, main point of algorithm
+    quitButtonImageHeight_Calculated = imageHeightRatio * quitButtonImageRectWidth;
+    //
+    //Debugging: x-value must be centered
+    float centerX=appWidth*1/2;
+    quitButtonImageRectX = centerX - quitButtonImageWidth_Adjusted * 1/2;
+    imageTintNightMode();
+    image( quitButtonImage, quitButtonImageRectX, quitButtonImageRectY, quitButtonImageWidth_Adjusted, quitButtonImageHeight_Calculated );
+    //
+  } else {//Portrait
+    largerDimension = quitButtonImageHeight;
+    smallerDimension = quitButtonImageWidth;
+    //
+    //Image's matching dimension to rectangle's matching dimension
+    quitButtonImageHeight_Adjusted = quitButtonImageRectHeight;
+    imageWidthRatio = smallerDimension / largerDimension; //value<1, main point of algorithm
+    quitButtonImageWidth_Calculated = imageWidthRatio * quitButtonImageRectHeight;
+    //
+    //Debugging: x-value must be centered
+    float centerX=appWidth*1/2;
+    quitButtonImageRectX = centerX - quitButtonImageWidth_Calculated * 1/2;
+    imageTintNightMode();
+    image( quitButtonImage, quitButtonImageRectX, quitButtonImageRectY, quitButtonImageWidth_Calculated, quitButtonImageHeight_Adjusted );
+    //
+  }
+}//End quitButtonImage
 //
-void mousePressed() {
-  //OS Level MouseClick
-  if ( OS_On==false ) OS_On=true;//End OS Level MouseClick
-  if ( splashScreenStart==true ) {//Home Screen Only Variables
-    if ( mouseX>=quitX && mouseX<=quitX+quitWidth && mouseY>=quitY && mouseY<=quitY+quitHeight ) exit();
-  }//Home Screen Only
-  //
-}//End mousePressed
-//
-//End MAIN Program
+//End Image Subprogram
