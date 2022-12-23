@@ -25,7 +25,7 @@ void draw() {
   if(start == true){
     img = loadImage("../Images/Drougs.jpg");
   image(img, 0,0,appWidth/3, appHeight/3);
-  text("Welcome to the cooking place",appWidth/2, appHeight/2);
+  text("Welcome To The Multiverse",appWidth/2, appHeight/2);
   }
 Modes();
 Phase3();
@@ -34,7 +34,7 @@ Phase5();
 Phase6();
 Phase7();
 if(start==false){
- println("hi, please read the instructions and to start click the start button.");
+ println("Hey,Read the Instructions.");
 background(234, 221, 202);
 }
  riechtangles();
@@ -47,7 +47,7 @@ void mousePressed() {
 {
  Phase2();
 if(mouseX==appWidth*1/3 && mouseY==appHeight*1/3 && start==false);
-println("Welcome to the cooking place");
+println("Welcome");
 start=true;
 if (mouseButton==RIGHT){
 start=false;
