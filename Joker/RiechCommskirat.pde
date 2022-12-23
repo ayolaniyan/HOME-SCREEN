@@ -52,7 +52,7 @@ fill(reset);
   
 textSize(20);
 fill(255, 129, 78);
-text("READ THE INSTRUCTIONS To Continue Your Jounery", appWidth/2.8, appHeight/9);
+text("Read The Instructions To Explore", appWidth/2.8, appHeight/9);
 fill(reset);
 }
 //Phase3
