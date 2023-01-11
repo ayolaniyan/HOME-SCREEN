@@ -1,19 +1,19 @@
 void pic4(){
 if(key=='C'||key=='c'){
-Phase4=true;
+pic4=true;
 };
 
 if(mouseButton==RIGHT){
-Phase4=false;
+pic4=false;
 };
 if(start==false){
-Phase4=false;
+pic4=false;
 };
-if(Phase3==false){
-Phase4=false;
+if(pic3==false){
+pic4=false;
 };
-if(Phase4==true){
-img3=loadImage("../Images/Phase4.jpg");
+if(pic4==true){
+img3=loadImage("../Images/pic4.jpg");
 image(img3,0,534,appWidth/3, appHeight/3);
 }
 };

@@ -1,9 +1,9 @@
 void pic2(){
 if(mouseButton == LEFT) {
-  Phase2 = true;
+  pic2= true;
 };
 if(mouseButton == RIGHT) {
-  Phase2 = false;
+  pic2 = false;
 };
 //text in Riechcommoskirat text
   }

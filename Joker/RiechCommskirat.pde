@@ -19,8 +19,8 @@ fill(255, 129, 78);
 text("Reset(Right click)", TextX2, TextTY2 );
 fill(reset);
 
-//phase2
-if (Phase2 == true) {
+//pic2
+if (pic2 == true) {
 textSize(20);
 fill(255, 129, 78);
 text("Welcome To The Multiverse", appWidth/2.5, appHeight/7 );
@@ -55,8 +55,8 @@ fill(255, 129, 78);
 text("Read The Instructions To Explore", appWidth/2.8, appHeight/9);
 fill(reset);
 }
-//Phase3
-if(Phase3==true){
+//pic3
+if(pic3==true){
 textSize(20);
 fill(255,255,255);
 text("JUST BE YOURSELF", appWidth/30, appHeight/2);
@@ -72,8 +72,8 @@ fill(255, 129, 78);
 text("Press C to continue", appWidth/30, appHeight/1.8);
 fill(reset);
 }
-//Phase4
-if(Phase4==true){
+//pic4
+if(pic4==true){
 textSize(20);
 fill(255, 255, 255);
 text("Love Is A joke", appWidth/300, appHeight/1.4);
@@ -84,8 +84,8 @@ fill(255, 129, 78);
 text("Press B to continue", appWidth/30, appHeight/1.2);
 fill(reset);
 }
-//Phase5
-if(Phase5==true){
+//pic5
+if(pic5==true){
 textSize(20);
 fill(255,255,255);
 text("The Multiverse Is Not for the weak", appWidth/3, appHeight/1.3);
@@ -101,7 +101,7 @@ fill(255, 129, 78);
 text("Press i to continue", appWidth/3, appHeight/1.1);
 fill(reset);
 }
-if(Phase6==true){
+if(pic6==true){
 textSize(20);
 fill(255, 255, 255);
 text("Just Stop And Think", appWidth/1.4, appHeight/1.1);
