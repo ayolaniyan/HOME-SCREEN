@@ -10,7 +10,7 @@ TextTY2=appHeight*15/30;
 //text type
 textSize(30);
 fill(255, 129, 78);
-text("Start(Space)", TextX1, TextTY1 );
+text("Start(Left Click)", TextX1, TextTY1 );
 fill(reset);
 //
 

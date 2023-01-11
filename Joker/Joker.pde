@@ -4,7 +4,6 @@ Boolean start=false, Phase2=false, Phase3=false, Phase4=false, Phase5=false, Pha
 Boolean Daymode = false, Nightmode = false;
 float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 PImage img,img2,img3,img4,img5, img6;
-
 //
 
 //
@@ -35,7 +34,7 @@ Phase6();
 Phase7();
 if(start==false){
  println("Hey,Read the Instructions.");
-background(234, 221, 202);
+background(#FF0A0A);
 }
  riechtangles();
  Riechcommskirat();
