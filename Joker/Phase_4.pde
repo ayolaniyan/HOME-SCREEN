@@ -1,4 +1,4 @@
-void Phase4(){
+void pic4(){
 if(key=='C'||key=='c'){
 Phase4=true;
 };

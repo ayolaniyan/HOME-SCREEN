@@ -1,4 +1,4 @@
-void Phase7(){
+void pic7(){
 if(key=='F'||key=='f'){
 Phase7=true;
   };

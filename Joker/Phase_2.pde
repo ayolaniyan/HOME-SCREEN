@@ -1,4 +1,4 @@
-void Phase2(){
+void pic2(){
 if(mouseButton == LEFT) {
   Phase2 = true;
 };
