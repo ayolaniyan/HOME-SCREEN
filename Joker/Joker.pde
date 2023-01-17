@@ -1,4 +1,13 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 //Global Variables
+Minim minim;
+AudioPlayer song1;
 int appWidth, appHeight, largerDimension, smallerDimension;
 Boolean start=false, pic2=false, pic3=false, pic4=false, pic5=false, pic6=false, pic7=false;
 Boolean Daymode = false, Nightmode = false;
@@ -16,7 +25,7 @@ void setup() {
   display();
   largerDimension = 0; //From Display Algorithm
   smallerDimension = 0; //From Display Algorithm
-
+audio();
 
 }//End setup
 //
@@ -56,7 +65,10 @@ println("System reset");
 // 
 }
 void keyPressed() {
-  
+  if (key=='A' || key=='a') {
+    song1.play(); }
+    
+
 
 }//End keypressed
 //
